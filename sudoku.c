@@ -47,8 +47,7 @@ int is_valid(Node* n){
     printf("valid\n");
     for (int i=0; i<9; i++)
     {
-        int num[8];
-        for (int i=0; i<8; i++) num[i] = 0;
+        int num[8]; for (int x=0; x<8; x++) num[x] = 0;
         for (int j=0; j<9; j++)
         {
             printf("num = %i , %i ", num[n->sudo[i][j] - 1], n->sudo[i][j]);
