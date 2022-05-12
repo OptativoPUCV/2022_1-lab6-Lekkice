@@ -63,7 +63,7 @@ int is_valid(Node* n){
 
     for (int j=0; j<9; j++)
     {
-        int num[8];
+        int num[9];
         for (int i=0; i<8; i++) num[i] = 0;
         for (int i=0; i<9; i++)
         {
@@ -77,7 +77,7 @@ int is_valid(Node* n){
 
     for (int k=0; k<9; k++)
     {
-        int num[8];
+        int num[9];
         for (int i=0; i<8; i++) num[i] = 0;
         for(int p=0;p<9;p++)
         {
