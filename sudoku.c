@@ -59,6 +59,8 @@ int is_valid(Node* n){
         printf("\n");
     }
 
+    printf("\n");
+
     for (int j=0; j<9; j++)
     {
         int num[8];
