@@ -1,4 +1,4 @@
-#include <stdio.h>
+    #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
 
@@ -44,7 +44,38 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
+    for (int i=0; i<9; i++)
+    {
+        int num[8] = {0};
+        for (int j=0; j<9; j++)
+        {
+            if (num[n->sudo[i][j] - 1] & n->sudo[i][j]) return 0;
+            num[n->sudo[i][j] - 1]++;
+        }
+    }
 
+    for (int j=0; j<9; j++)
+    {
+        int num[8] = {0};
+        for (int i=0; i<9; i++)
+        {
+            if (num[n->sudo[i][j] - 1] & n->sudo[i][j]) return 0;
+            num[n->sudo[i][j] - 1]++;
+        }
+    }
+
+    for (int k=0; k<9; k++)
+    {
+        int num[8] = {0};
+        for(int p=0;p<9;p++)
+        {
+            int i=3*(k/3) + (p/3);
+            int j=3*(k%3) + (p%3);
+
+            if (num[n->sudo[i][j] - 1] & n->sudo[i][j]) return 0;
+            num[n->sudo[i][j] - 1]++;
+        }
+    }
     return 1;
 }
   
