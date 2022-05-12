@@ -45,11 +45,13 @@ void print_node(Node* n){
 
 int is_valid(Node* n){
     printf("valid\n");
+    print_node(n);
     for (int i=0; i<9; i++)
     {
         int num[8]; for (int x=0; x<8; x++) num[x] = 0;
         for (int j=0; j<9; j++)
         {
+            if (!n->sudo[i][j]) continue;
             printf("num = %i , %i ", num[n->sudo[i][j] - 1], n->sudo[i][j]);
             if (num[n->sudo[i][j] - 1] & n->sudo[i][j]) return 0;
             num[n->sudo[i][j] - 1] = n->sudo[i][j];
