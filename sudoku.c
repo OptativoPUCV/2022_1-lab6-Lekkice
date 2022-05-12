@@ -54,7 +54,7 @@ int is_valid(Node* n){
             if (num[n->sudo[i][j] - 1] & n->sudo[i][j]) return 0;
             num[n->sudo[i][j] - 1]++;
         }
-        printf("\n");
+        printf("loop 1\n");
     }
 
     for (int j=0; j<9; j++)
