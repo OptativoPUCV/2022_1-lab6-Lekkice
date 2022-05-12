@@ -94,6 +94,7 @@ List* get_adj_nodes(Node* n){
                 {
                     Node *nCopy = copy(n);
                     nCopy->sudo[i][k] = num;
+                    if (!is_valid(nCopy)) continue;
                     pushBack(list, nCopy);
                 }
                 return list;
