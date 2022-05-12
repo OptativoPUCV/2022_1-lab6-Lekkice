@@ -44,8 +44,6 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-    printf("valid\n");
-    print_node(n);
     for (int i=0; i<9; i++)
     {
         int num[9] = {0};
@@ -56,10 +54,7 @@ int is_valid(Node* n){
             if (num[n->sudo[i][j] - 1] & n->sudo[i][j]) return 0;
             num[n->sudo[i][j] - 1] = n->sudo[i][j];
         }
-        printf("\n");
     }
-
-    printf("\n");
 
     for (int j=0; j<9; j++)
     {
@@ -67,11 +62,9 @@ int is_valid(Node* n){
         for (int i=0; i<9; i++)
         {
             if (n->sudo[i][j] == 0) continue;
-            printf("num = %i , %i ", num[n->sudo[i][j] - 1], n->sudo[i][j]);
             if (num[n->sudo[i][j] - 1] & n->sudo[i][j]) return 0;
             num[n->sudo[i][j] - 1] = n->sudo[i][j];
         }
-        printf("\n");
     }
 
     for (int k=0; k<9; k++)
