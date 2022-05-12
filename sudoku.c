@@ -63,8 +63,7 @@ int is_valid(Node* n){
 
     for (int j=0; j<9; j++)
     {
-        int num[9];
-        for (int i=0; i<8; i++) num[i] = 0;
+        int num[9] = {0};
         for (int i=0; i<9; i++)
         {
             if (n->sudo[i][j] == 0) continue;
@@ -77,8 +76,7 @@ int is_valid(Node* n){
 
     for (int k=0; k<9; k++)
     {
-        int num[9];
-        for (int i=0; i<8; i++) num[i] = 0;
+        int num[9] = {0};
         for(int p=0;p<9;p++)
         {
             int i=3*(k/3) + (p/3);
