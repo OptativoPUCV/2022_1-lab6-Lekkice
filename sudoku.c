@@ -119,27 +119,27 @@ int is_final(Node* n){
 
 Node* DFS(Node* initial, int* cont){
     List *stack = createStack();
-    *cont = 0;
-
     push(stack, initial);
-
+    *cont = 0;
+    Node *node;
     while (top(stack))
     {
-        Node *node = top(stack); pop(stack);
+        node = top(stack); pop(stack);
         if (is_final(node)) return node;
 
         List *adyacentes = get_adj_nodes(node);
-
         Node *adyacente = first(adyacentes);
         while (adyacente)
         {
             push(stack, adyacente);
             adyacente = next(adyacentes);
         }
+        
         free(node);
         (*cont)++;
     }
     printf("\ncont = %i\n\n", *cont);
+    print_node(node);
     return NULL;
 }
 
