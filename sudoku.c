@@ -84,9 +84,9 @@ int is_valid(Node* n){
 
 List* get_adj_nodes(Node* n){
     List* list=createList();
-    for (int i=0; i<8; i++)
+    for (int i=0; i<9; i++)
     {
-        for (int k=0; k<8; k++)
+        for (int k=0; k<9; k++)
         {
             if (n->sudo[i][k] == 0)
             {
@@ -134,7 +134,7 @@ Node* DFS(Node* initial, int* cont){
             push(stack, adyacente);
             adyacente = next(adyacentes);
         }
-        print_node(node);
+        //print_node(node);
         //free(node);
         (*cont)++;
     }
