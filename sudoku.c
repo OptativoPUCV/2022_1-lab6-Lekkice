@@ -135,7 +135,7 @@ Node* DFS(Node* initial, int* cont){
             adyacente = next(adyacentes);
         }
         
-        free(node);
+        //free(node);
         (*cont)++;
     }
     printf("\ncont = %i\n\n", *cont);
