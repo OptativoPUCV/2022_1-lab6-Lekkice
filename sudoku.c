@@ -134,12 +134,10 @@ Node* DFS(Node* initial, int* cont){
             push(stack, adyacente);
             adyacente = next(adyacentes);
         }
-        //print_node(node);
-        //free(node);
+        free(node);
         (*cont)++;
     }
     printf("\ncont = %i\n\n", *cont);
-    //print_node(node);
     return NULL;
 }
 
