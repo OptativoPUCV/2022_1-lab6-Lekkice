@@ -1,4 +1,4 @@
-    #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
 
@@ -116,10 +116,45 @@ int is_final(Node* n){
     return 1;
 }
 
-Node* DFS(Node* initial, int* cont){
-  return NULL;
-}
 
+Node* DFS(Node* initial, int* cont){
+    List *list = createList();
+    List *visitados = createList();
+    pushBack(list, initial);
+
+    while (!is_empty(list))
+    {
+        Node *node = last(list);
+        popBack(list);
+
+        int saltar = 0;
+        Node *v = first(visitados);
+        while (v)
+        {
+            if (v == node)
+            {
+                saltar = 1;
+                break;
+            }
+            v = next(visitados);
+        }
+        if (saltar) continue;
+
+        pushBack(visitados, node);
+
+        if (is_final(node)) return node;
+
+        List *adyacentes = get_adj_nodes(node);
+
+        Node *adyacente = first(adyacentes);
+        while (adyacente)
+        {
+            pushBack(list, adyacente);
+            adyacente = next(adyacentes);
+        }
+    }
+    return NULL;
+}
 
 
 /*
