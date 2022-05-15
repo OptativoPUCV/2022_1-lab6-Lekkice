@@ -140,7 +140,7 @@ Node* DFS(Node* initial, int* cont){
         node = top(stack); pop(stack);
         (*cont)++;
     }
-    printf("\ncont = %i\n", cont);
+    printf("\ncont = %i\n", *cont);
     return NULL;
 }
 
