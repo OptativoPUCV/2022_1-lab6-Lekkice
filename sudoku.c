@@ -118,30 +118,14 @@ int is_final(Node* n){
 
 
 Node* DFS(Node* initial, int* cont){
-    List *list = createList();
-    List *visitados = createList();
-    pushBack(list, initial);
+    List *stack = createStack();
+    *cont = 0;
 
-    while (!is_empty(list))
+    push(stack, initial);
+
+    Node *node = top(stack); pop(stack);
+    while (node)
     {
-        Node *node = last(list);
-        popBack(list);
-
-        int saltar = 0;
-        Node *v = first(visitados);
-        while (v)
-        {
-            if (v == node)
-            {
-                saltar = 1;
-                break;
-            }
-            v = next(visitados);
-        }
-        if (saltar) continue;
-
-        pushBack(visitados, node);
-
         if (is_final(node)) return node;
 
         List *adyacentes = get_adj_nodes(node);
@@ -149,9 +133,12 @@ Node* DFS(Node* initial, int* cont){
         Node *adyacente = first(adyacentes);
         while (adyacente)
         {
-            pushBack(list, adyacente);
+            push(stack, adyacente);
             adyacente = next(adyacentes);
         }
+        free(node);
+        node = top(stack); pop(stack);
+        (*cont)++;
     }
     return NULL;
 }
