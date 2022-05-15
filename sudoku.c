@@ -123,9 +123,9 @@ Node* DFS(Node* initial, int* cont){
 
     push(stack, initial);
 
-    Node *node = top(stack); pop(stack);
-    while (node)
+    while (top(stack))
     {
+        Node *node = top(stack); pop(stack);
         if (is_final(node)) return node;
 
         List *adyacentes = get_adj_nodes(node);
@@ -137,10 +137,9 @@ Node* DFS(Node* initial, int* cont){
             adyacente = next(adyacentes);
         }
         free(node);
-        node = top(stack); pop(stack);
         (*cont)++;
     }
-    printf("\ncont = %i\n", *cont);
+    printf("\ncont = %i\n\n", *cont);
     return NULL;
 }
 
